@@ -16,14 +16,6 @@ const clientId = "620e738985b043f8b0b38813d21c2a2e";
 const params = new URLSearchParams(window.location.search);
 const code = params.get("code");
 
-if (!code) {
-    redirectToAuthCodeFlow(clientId);
-} else {
-    const accessToken = await getAccessToken(clientId, code);
-    const profile = await fetchProfile(accessToken);
-    populateUI(profile);
-}
-
 export async function redirectToAuthCodeFlow(clientId) {
     const verifier = generateCodeVerifier(128);
     const challenge = await generateCodeChallenge(verifier);
@@ -40,6 +32,18 @@ export async function redirectToAuthCodeFlow(clientId) {
 
     document.location = `https://accounts.spotify.com/authorize?${params.toString()}`;
 }
+
+
+if (!code) {
+    redirectToAuthCodeFlow(clientId);
+} else {
+    const accessToken = await getAccessToken(clientId, code);
+    const profile = await fetchProfile(accessToken);
+    populateUI(profile);    
+    const playlists = await getPlaylists(accessToken);
+    console.log(playlists.items[0].name);       //do a for loop 0 -> i ?
+}
+
 
 function generateCodeVerifier(length) {
     let text = '';
@@ -75,7 +79,6 @@ export async function getAccessToken(clientId, code) {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: params
     });
-
     const { access_token } = await result.json();
     return access_token;
 }
@@ -88,6 +91,15 @@ async function fetchProfile(token) {
     return await result.json();
 }
 
+  
+async function getPlaylists(token){
+    const result = await fetch("https://api.spotify.com/v1/me/playlists", {
+        method: 'GET', headers: { Authorization: `Bearer ${token}` }
+});
+
+    return await result.json()
+}
+  
 function populateUI(profile) {
     document.getElementById("displayName").innerText = profile.display_name;
     if (profile.images[0]) {

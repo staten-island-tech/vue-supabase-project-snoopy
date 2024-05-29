@@ -4,6 +4,6 @@
 
 <template>
   <main>
-    <TheWelcome />
+    <router-link to="/user">User</router-link>
   </main>
 </template>

@@ -1,6 +1,7 @@
   <template>
     <div>
         <h1>Display your Spotify profile data</h1>
+        <button @click="login">Login with Spotify</button>
     <section id="profile">
     <h2>Logged in as <span id="displayName"></span></h2>
     <span id="avatar"></span>

@@ -1,11 +1,10 @@
 <template>
   <div>
-
+    <UserProfile></UserProfile>
   </div>
 </template>
 
 <script setup>
-import './assets/main.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

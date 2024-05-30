@@ -40,8 +40,11 @@ if (!code) {
     const accessToken = await getAccessToken(clientId, code);
     const profile = await fetchProfile(accessToken);
     populateUI(profile);    
-    const playlists = await getPlaylists(accessToken);
-    console.log(playlists.items[0].name);       //do a for loop 0 -> i ?
+    const playlists = await getPlaylists(accessToken); 
+    console.log(playlists)
+    for (let i=0; i<playlists.items.length; i++) {
+        console.log(playlists.items[i].name)
+    }
 }
 
 

@@ -2,6 +2,9 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { ref, onMounted } from 'vue'
 import { supabase } from './supabase'
+import Account from './components/Account.vue'
+
+const session = ref()
 
 onMounted(() => {
   supabase.auth.getSession().then(({ data }) => {

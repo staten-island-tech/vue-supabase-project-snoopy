@@ -12,6 +12,18 @@ onMounted(() => {
   getProfile()
 })
 
+async function signOut() {
+    try {
+        loading.value = true
+        let { error } = await supabase.auth.signOut()
+        if (error) throw error
+    } catch (error) {
+        alert(error.message)
+    } finally {
+        loading.value = false
+    }
+}
+
 </script>
 
 
@@ -35,7 +47,7 @@ onMounted(() => {
       </div>
   
       <div>
-        <button @click="signOut" :disabled="loading">Sign Out</button>
+        <button @click="signOut" :disabled="loading"> Sign Out </button>
       </div>
     </form>
   </template>

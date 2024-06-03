@@ -45,6 +45,9 @@ async function createPlaylist(tracksUri){
   return playlist;
 }
 
+const createdPlaylist = await createPlaylist(tracksUri);
+console.log(createdPlaylist.name, createdPlaylist.id);
+
   </script>
 <style scoped>
 

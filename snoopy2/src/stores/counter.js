@@ -78,9 +78,11 @@ async function fetchWebApi(endpoint, method, body) {
 }
 
 const tracksUri = ref([])
+const logged = ref(false)
 
 const createdPlaylist = await createPlaylist(tracksUri);
 console.log(createdPlaylist.name, createdPlaylist.id);
 
   return {code_verifier, code_challenge, token, playlists, tracksUri, generateCodeVerifier, generateCodeChallenge, getAccessToken, redirectToAuthCodeFlow, fetchWebApi}
 })
+

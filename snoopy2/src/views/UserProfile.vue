@@ -1,24 +1,22 @@
   <template>
-    <div>
+    <div v-if="store.logged">
         <h1>Display your Spotify profile data</h1>
-        <button @click="login">Login with Spotify</button>
-    <section id="profile">
-    <h2>Logged in as <span id="displayName"></span></h2>
+    <h2>Logged in as {{Profile.display_name}}</h2>
     <span id="avatar"></span>
     <ul>
-        <li>User ID: <span>{{ Profile.id }}</span></li>
-        <li>Email: <span id="email"></span></li>
+        <li>User ID: {{ Profile.id }} </li>
+        <li>Email: {{ Profile.email }}</li>
         <li>Spotify URI: <a id="uri" href="#"></a></li>
         <li>Link: <a id="url" href="#"></a></li>
         <li>Profile Image: <span id="imgUrl"></span></li>
     </ul>
-    </section>
     </div>
 </template>
 
 <script setup>
 
 import { useSpotifyStore } from '@/stores/counter'
+import { onMounted } from 'vue';
 
 const store = useSpotifyStore()
 
@@ -26,21 +24,18 @@ const props = defineProps( {
     Profile: Object
 })
 
-const clientId = "620e738985b043f8b0b38813d21c2a2e";
 const params = new URLSearchParams(window.location.search);
 const code = params.get("code");
 
 
 
 if (!code) {
-    redirectToAuthCodeFlow(clientId);
+    store.redirectToAuthCodeFlow(store.clientId);
 } else {
     const profile = await fetchProfile(store.token);
     console.log(profile)
-    populateUI(profile);    
     const playlists = await getPlaylists(store.token);
     console.log(playlists)
-    console.log(playlists.items[0].name);
     for (let i=0; i<playlists.items.length; i++) {
         console.log(playlists.items[i].name)
     }
@@ -55,21 +50,6 @@ if (!code) {
 }
 
   
-function populateUI(profile) {
-    document.getElementById("displayName").innerText = profile.display_name;
-    if (profile.images[0]) {
-        const profileImage = new Image(200, 200);
-        profileImage.src = profile.images[0].url;
-        document.getElementById("avatar").appendChild(profileImage);
-        document.getElementById("imgUrl").innerText = profile.images[0].url;
-    }
-    Profile.id = profile.id.value;
-    document.getElementById("email").innerText = profile.email;
-    document.getElementById("uri").innerText = profile.uri;
-    document.getElementById("uri").setAttribute("href", profile.external_urls.spotify);
-    document.getElementById("url").innerText = profile.href;
-    document.getElementById("url").setAttribute("href", profile.href);
-}
 </script>
 
 <style scoped>

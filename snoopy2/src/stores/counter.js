@@ -1,17 +1,7 @@
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
-  }
-
-  return { count, doubleCount, increment }
-})
-
-export const useSpotifyStore = defineStore('spotify' ,() => {
+export const useSpotifyStore = defineStore('spotify' ,async () => {
   function generateCodeVerifier(length) {
     let text = '';
     let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -74,6 +64,23 @@ async function redirectToAuthCodeFlow(clientId) {
   const code_verifier = generateCodeVerifier()
   const code_challenge = generateCodeChallenge(code_verifier)
   const token = getAccessToken(clientId, code)
+  const playlists = ref('null')
 
-  return {code_verifier, code_challenge, token, generateCodeVerifier, generateCodeChallenge, getAccessToken, redirectToAuthCodeFlow}
+async function fetchWebApi(endpoint, method, body) {
+  const res = await fetch(`https://api.spotify.com/${endpoint}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method,
+    body:JSON.stringify(body)
+  });
+  return await res.json();
+}
+
+const tracksUri = ref([])
+
+const createdPlaylist = await createPlaylist(tracksUri);
+console.log(createdPlaylist.name, createdPlaylist.id);
+
+  return {code_verifier, code_challenge, token, playlists, tracksUri, generateCodeVerifier, generateCodeChallenge, getAccessToken, redirectToAuthCodeFlow, fetchWebApi}
 })

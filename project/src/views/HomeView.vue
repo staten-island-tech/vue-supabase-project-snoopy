@@ -1,18 +1,14 @@
 <template>
   <div>
-    <h1>hi</h1>
     <Login></Login>
-<!--     <UserProfile :Profile="store.profile"></UserProfile> -->
-    
   </div>
 </template>
 
 <script setup>
-import Login from '@/assets/components/Login.vue';
-import UserProfile from '@/assets/components/UserProfile.vue';
-import { useSpotifyStore } from '@/stores/spotifyStore';
+import Login from '@/components/Login.vue';
+import { useStore } from '@/stores/counter.js';
 
-const store = useSpotifyStore()
+const store = useStore()
 
 </script>
 

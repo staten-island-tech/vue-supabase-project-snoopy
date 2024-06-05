@@ -2,19 +2,22 @@
     <div v-if="!store.logged">
       <label for="email">Email  </label>
     <input id="email" type="text" v-model="email"></input>
-    <label for="password">Password  </label>
+    <label for="password">   Password  </label>
     <input id="password" type="text"v-model="password"></input>
       <button @click="signIn">Sign In</button>
       <button @click="signUp">Sign Up</button>
   
-    </div>    
-    <button @click="signOut" v-if="store.logged">Sign Out</button>
+    </div>
+    <div v-if="store.logged">
+      <button @click="signOut">Sign Out</button>
+    </div>
+
   </template>
   
   <script setup>
   import { supabase } from '../../supabase';
   import { useStore } from '@/stores/counter';
-  import { ref } from 'vue';
+  import { ref, onMounted } from 'vue';
   import router from '@/router';
   const store = useStore()
 
@@ -69,7 +72,7 @@
     getToken().then(token => {
       store.token = token
     })
-    router.push({ path: 'playlist' })
+    router.push({ path: 'search' })
   }
 }
 
@@ -77,9 +80,8 @@
     supabase.auth.signOut();
     store.logged = false
     store.token = null
-    router.push({ path: 'login' })
+    router.push({ path: '/' })
   }
-
 
   </script>
   

@@ -3,8 +3,8 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/playlist">Playlist</RouterLink>
+<!--         <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/search">Search</RouterLink> -->
 
   <RouterView />
 </template>

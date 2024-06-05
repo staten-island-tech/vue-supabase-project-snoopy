@@ -1,9 +1,9 @@
 <template>
     <div v-if="!store.logged">
       <label for="email">Email  </label>
-    <input id="email" type="text" v-model="email"></input>
+    <input id="email" type="text" v-model="email">
     <label for="password">   Password  </label>
-    <input id="password" type="text"v-model="password"></input>
+    <input id="password" type="text" v-model="password">
       <button @click="signIn">Sign In</button>
       <button @click="signUp">Sign Up</button>
   
@@ -68,10 +68,12 @@
     console.log(error)
   }
   else {
+    store.current_user = data
     store.logged = true
     getToken().then(token => {
       store.token = token
     })
+    console.log(store.current_user)
     router.push({ path: 'search' })
   }
 }

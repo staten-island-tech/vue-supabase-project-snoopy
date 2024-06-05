@@ -9,6 +9,6 @@ export const useUserStore = defineStore('user', {
       data: data,
       error: error 
     }
-}
+  }
 })
 

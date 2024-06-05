@@ -7,22 +7,21 @@
   </template>
   
   <script setup>
-  import { useUserStore } from '@/stores/user'
   import { usePlaylistStore } from '@/stores/playlist'
+  import { useStore } from '@/stores/counter';
   import router from '@/router';
   import { ref } from 'vue'
 
-  const userStore = useUserStore()
   const playlistStore  = usePlaylistStore()
-  const playlist = ref([])
+  const store = useStore()
 
   const props = defineProps({
     result: Object
   });
 
 function addToPlaylist(result) {
-    playlist.value.push(result.id)
-    console.log(playlist.value)
+    store.current_playlist.push(result.id)
+    console.log(store.user_playlist)
     router.push({path: 'playlist'})
 }
 

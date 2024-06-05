@@ -9,6 +9,7 @@
   
   <script setup>
   import { usePlaylistStore } from '@/stores/playlist';
+  import { supabase } from '../../supabase';
   import { useUserStore } from '@/stores/user';
   import { onMounted } from 'vue';
   import router from '@/router';

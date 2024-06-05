@@ -1,8 +1,8 @@
 <template>
     <div>
       <h4>{{ result.name }} by {{ result.artists[0].name }}</h4>
-      <h5>Spotify ID: {{ result.id }}</h5>
-      <button @click="addToPlaylist(result)">Add to Playlist</button>
+      <h5> Spotify ID: {{ result.id }}</h5>
+      <button class="button" @click="addToPlaylist(result)"> Add to Playlist </button>
     </div>
   </template>
   
@@ -26,5 +26,16 @@ function addToPlaylist(result) {
     router.push({path: 'playlist'})
 }
 
-  </script>
+</script>
+
+
+<style>
+h4, h5 {
+  color: white;
+}
+.button {
+  background-color: white;
+}
+
+</style>
   

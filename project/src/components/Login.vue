@@ -1,15 +1,15 @@
 <template>
-    <div v-if="!store.logged">
-      <label for="email">Email  </label>
-    <input id="email" type="text" v-model="email"></input>
-    <label for="password">   Password  </label>
-    <input id="password" type="text"v-model="password"></input>
-      <button @click="signIn">Sign In</button>
-      <button @click="signUp">Sign Up</button>
+    <div class="bar" v-if="!store.logged">
+    <label id="email" for="email"> Email </label>
+    <input type="text" v-model="email"></input>
+    <label id="password" for="password">  Password </label>
+    <input  type="text"v-model="password"></input>
+      <button class="button" @click="signIn"> Sign In </button>
+      <button class="button" @click="signUp"> Sign Up </button>
   
     </div>
     <div v-if="store.logged">
-      <button @click="signOut">Sign Out</button>
+      <button @click="signOut"> Sign Out </button>
     </div>
 
   </template>
@@ -83,5 +83,20 @@
     router.push({ path: '/' })
   }
 
-  </script>
+</script>
+
+
+<style>
+.bar {
+}
+#email {
+  color: white;
+}
+#password {
+  color: white;
+}
+.button {
+  background-color: white;
+}
+</style>
   

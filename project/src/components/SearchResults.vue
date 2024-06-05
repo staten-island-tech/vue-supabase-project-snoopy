@@ -1,16 +1,17 @@
 <template>
     <div>
-
+      <h4>{{ result.name }} by {{ result.artists[0].name }}</h4>
+      <button>Add</button>
     </div>
-</template>
+  </template>
+  
+  <script setup>
+  const props = defineProps({
+    result: Object
+  })
+  </script>
+  
+  <style scoped>
 
-<script setup>
-
-</script>
-const props = defineProps({
-    Item:Object
-})
-
-<style scoped>
-
-</style>
+  </style>
+  

@@ -77,7 +77,7 @@
     supabase.auth.signOut();
     store.logged = false
     store.token = null
-    router.push({ path: 'home' })
+    router.push({ path: 'login' })
   }
 
 

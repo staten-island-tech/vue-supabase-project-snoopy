@@ -1,14 +1,12 @@
 <template>
   <div>
-    <Login></Login>
+    <button @click="route">Login</button>
   </div>
 </template>
 
 <script setup>
-import Login from '@/components/Login.vue';
-import { useStore } from '@/stores/counter.js';
-
-const store = useStore()
+import router from '@/router';
+router.push({ path: 'login'})
 
 </script>
 

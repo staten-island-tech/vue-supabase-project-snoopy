@@ -3,7 +3,7 @@
         <Login></Login>
       <h2>My Playlist</h2>
         <h3 v-for="playlist in playlistStore.data" :key="playlist.id"></h3>
-      <button @click="searchRoute">Go back to Search</button>
+      <button class="button" @click="searchRoute">Go back to Search</button>
     </div>
   </template>
   
@@ -31,5 +31,12 @@
     router.push({path: 'search'})
   }
 
-  </script>
+</script>
+
+<style>
+.button {
+
+}
+
+</style>
   

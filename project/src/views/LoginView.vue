@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h1>Login</h1>
+      <h1> Login </h1>
       <Login></Login>
     </div>
   </template>
@@ -10,5 +10,8 @@
   </script>
   
   <style scoped>
-  
+  h1{
+    align-items: center;
+    color: white;
+  }
   </style>

@@ -1,10 +1,4 @@
-<template>
-  <div>
-    <UserProfile></UserProfile>
-  </div>
-</template>
-
-<script setup>
+import './assets/main.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -12,9 +6,9 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
+const app = createApp(App)
 
-</script>
+app.use(createPinia())
+app.use(router)
 
-<style scoped>
-
-</style>
+app.mount('#app')

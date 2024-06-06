@@ -5,7 +5,7 @@
     <div>
       <label for="search">Search for Tracks</label>
       <input type="text" id="search" v-model="search">
-      <button @click="search_tracks">Submit</button>
+      <button class="button" @click="search_tracks">Submit</button>
     </div>
     <div>
       <div v-for="result in searchArr" :key="result.id">
@@ -60,5 +60,7 @@ function playlistRoute() {
 </script>
 
 <style>
-
+.button {
+  
+}
 </style>

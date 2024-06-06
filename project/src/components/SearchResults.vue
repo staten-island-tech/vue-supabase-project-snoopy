@@ -9,6 +9,7 @@
   <script setup>
   import { usePlaylistStore } from '@/stores/playlist'
   import { useStore } from '@/stores/counter';
+  import { supabase } from '../../supabase'
   import router from '@/router';
   import { ref } from 'vue'
 
@@ -19,9 +20,18 @@
     result: Object
   });
 
-function addToPlaylist(result) {
-    store.current_playlist.push(result.id)
-    console.log(store.user_playlist)
+async function addToPlaylist(result) {
+    const { data, error } = await supabase 
+    .from('playlists')
+    .update({track_id: result.id})
+    .eq('id', `${store.current_id}`, )
+    .select()
+    if (error) {
+        console.log(error)
+    }
+    else {
+        console.log(data)
+    }
     router.push({path: 'playlist'})
 }
 

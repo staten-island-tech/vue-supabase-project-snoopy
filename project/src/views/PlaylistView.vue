@@ -2,41 +2,48 @@
     <div>
         <Login></Login>
       <h2>My Playlist</h2>
-        <h3 v-for="playlist in playlistStore.data" :key="playlist.id"></h3>
-      <button class="button" @click="searchRoute">Go back to Search</button>
+<!--         <h3 v-for="playlist in playlistStore.data" :key="playlist.id"></h3> -->
+      <button @click="searchRoute">Go back to Search</button>
     </div>
   </template>
   
   <script setup>
   import { usePlaylistStore } from '@/stores/playlist';
   import { supabase } from '../../supabase';
-  import { useUserStore } from '@/stores/user';
-  import { onMounted } from 'vue';
+  import { useStore } from '@/stores/counter';
+  import { ref, onMounted } from 'vue';
   import router from '@/router';
   import Login from '@/components/Login.vue';
   
-  const playlistStore = usePlaylistStore()
-  const userStore = useUserStore()
+  const store = useStore()
+  const session = ref(null)
   
   onMounted(() => {
-  supabase.auth.getSession().then(({ data }) => {
-    session.value = data.session;
-    const user = userStore.data.filter((user) => user.id === session.value.user.id)[0];
-    user.playlists.forEach((track) => {
-    playlist
+    getPlaylist(store.current_id)
 })
-})})
 
   function searchRoute() {
     router.push({path: 'search'})
   }
 
-</script>
+  async function getPlaylist(id) {
+    const { data, error } = await supabase 
+    .from('playlists')
+    .select('track_id')
+    .eq('id', `${id}`)
+    if (error) {
+        console.log(error)
+    }
+    else {
+        console.log(data)
+    }
 
-<style>
-.button {
+  }
+  </script>
 
-}
+  <style>
+    .button {
+
+    }
 
 </style>
-  

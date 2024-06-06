@@ -23,6 +23,8 @@
 
   const email = ref("")
   const password = ref("")
+
+  const currentUserData = ref(null)
   
   function getToken() {
   const client_id = '620e738985b043f8b0b38813d21c2a2e';
@@ -73,7 +75,8 @@
     getToken().then(token => {
       store.token = token
     })
-    console.log(store.current_user)
+    store.current_id = store.current_user.user.id   
+    console.log(store.current_id)
     router.push({ path: 'search' })
   }
 }

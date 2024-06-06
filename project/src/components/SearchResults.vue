@@ -30,7 +30,7 @@ function addToPlaylist(result) {
 
 <style>
 h4, h5 {
-  color: white;
+  color: black;
 }
 .button {
   background-color: white;

@@ -3,7 +3,7 @@
   <button @click="playlistRoute">Go back to Playlists</button>
   <div v-if="store.logged">
     <div>
-      <label for="search">Search for Tracks</label>
+      <label for="search">Search for Tracks </label>
       <input type="text" id="search" v-model="search">
       <button class="button" @click="search_tracks">Submit</button>
     </div>
@@ -42,7 +42,7 @@ async function search_tracks() {
   const query = inputChange()
   const result = await fetchSearch(query)
   searchArr.value = result.tracks.items
-/*   console.log(searchArr) */
+console.log(searchArr)
 }
 
 function inputChange() {

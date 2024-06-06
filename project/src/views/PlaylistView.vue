@@ -1,9 +1,13 @@
 <template>
     <div>
-        <Login></Login>
-      <h2>My Playlist</h2>
-        <PlaylistItems v-for="tracks in playlist" :key="track.track_id" :track="track"></PlaylistItems>
-      <button @click="searchRoute">Go back to Search</button>
+        <Login></Login>      
+    <button @click="searchRoute">Go back to Search</button>
+      <h2>My Playlist</h2>      
+
+      <div v-for="track in playlistData" :key="track.track_id">
+        <p>{{ track.name }} by {{ track.artists[0].name }}</p>
+        <button @click="removeFromPlaylist(track)">Remove from Playlist</button>
+      </div>
     </div>
   </template>
   
@@ -13,11 +17,10 @@
   import { ref, onMounted } from 'vue';
   import router from '@/router';
   import Login from '@/components/Login.vue';
-  import PlaylistItems from '@/components/PlaylistItems.vue'
   
   const store = useStore()
   const session = ref(null)
-  const playlist = ref([])
+  const playlistData = ref([])
 
   onMounted(async () => {
     await getPlaylist(store.current_id)
@@ -32,7 +35,6 @@
     .from('playlists')
     .select('track_id')
     .eq('id', `${id}`)
-    console.log(Array.from(data))
     console.log(injectTracks(Array.from(data)))
 
   }
@@ -49,7 +51,7 @@
 }
 
     async function getTrack(track) {
-        return await fetchWebApi(`https://api.spotify.com/v1/${track.track_id}`, "GET")
+        return await fetchWebApi(`https://api.spotify.com/v1/tracks/${track.track_id}`, "GET")
     }
 
 async function injectTracks(playlist) {
@@ -57,8 +59,22 @@ async function injectTracks(playlist) {
   for (const track of playlist) {
     const trackData = await getTrack(track);
     tracks.push(trackData)
-  }
-  return tracks
+
+  }    
+  playlistData.value = tracks
+  console.log(playlistData.value)
+}
+
+async function removeFromPlaylist(track) {
+    const { data, error } = await supabase 
+    .from('playlists')
+    .delete()
+    .eq('id', store.current_id)
+    .eq('track_id', track.id)
+    if (error) {
+        console.log(error)
+    }
+    getPlaylist(store.current_id)
 }
 
   </script>

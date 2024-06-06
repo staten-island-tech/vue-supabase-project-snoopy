@@ -1,7 +1,6 @@
 <template>
     <div>
       <h4>{{ result.name }} by {{ result.artists[0].name }}</h4>
-      <h5>Spotify ID: {{ result.id }}</h5>
       <button @click="addToPlaylist(result)">Add to Playlist</button>
     </div>
   </template>
@@ -25,9 +24,6 @@ async function addToPlaylist(result) {
     .select()
     if (error) {
         console.log(error)
-    }
-    else {
-        console.log(data)
     }
     router.push({path: 'playlist'})
 }

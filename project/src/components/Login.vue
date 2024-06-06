@@ -4,8 +4,8 @@
     <input id="email" type="text" v-model="email">
     <label for="password">   Password  </label>
     <input id="password" type="text" v-model="password">
-      <button @click="signIn">Sign In</button>
-      <button @click="signUp">Sign Up</button>
+      <button class="button" @click="signIn">Sign In</button>
+      <button class="button" @click="signUp">Sign Up</button>
   
     </div>
     <div v-if="store.logged">
@@ -86,4 +86,6 @@
   }
 
   </script>
+
+
   

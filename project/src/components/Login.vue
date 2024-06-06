@@ -77,7 +77,7 @@
     })
     store.current_id = store.current_user.user.id   
     console.log(store.current_id)
-    router.push({ path: 'search' })
+    router.push({ path: 'playlist' })
   }
 }
 

@@ -12,6 +12,6 @@
   <style scoped>
   h1{
     align-items: center;
-    color: white;
+    color: black;
   }
   </style>

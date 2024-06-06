@@ -1,23 +1,13 @@
 import { defineStore } from 'pinia'
 import { supabase } from '../../supabase.js'
 
-export const usePlaylistStore = defineStore('playlists', {
-  state: () => ({
-    data: null,
-    error: null
-  }),
+const { data, error } = await supabase.from('playlists').select()
 
-  actions: {
-    async fetchData() {
-      try {
-        const { data, error } = await supabase.from('playlists').select();
-        if (error) {
-          throw error;
-        }
-        this.data = data;
-      } catch (error) {
-        this.error = error;
+export const usePlaylistStore = defineStore('playlists', {
+    state: () => {
+      return {
+        data: data,
+        error: error 
       }
     }
-  }
-})
+  })

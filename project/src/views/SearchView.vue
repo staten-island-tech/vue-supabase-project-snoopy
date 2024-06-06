@@ -42,7 +42,7 @@ async function search_tracks() {
   const query = inputChange()
   const result = await fetchSearch(query)
   searchArr.value = result.tracks.items
-  console.log(searchArr)
+/*   console.log(searchArr) */
 }
 
 function inputChange() {

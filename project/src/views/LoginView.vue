@@ -1,6 +1,7 @@
 <template>
     <div>
-      <h1> Login </h1>
+      <h1> Playlist Maker</h1>
+      <h2> Login </h2>
       <Login></Login>
     </div>
   </template>
@@ -12,6 +13,9 @@
   <style scoped>
   h1{
     align-items: center;
-    color: black;
+    margin-left: 45%
+  }
+  h2 {
+    align-items: center;
   }
   </style>

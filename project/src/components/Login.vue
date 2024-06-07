@@ -1,20 +1,19 @@
 <template>
-    <div v-if="!store.logged">
-      <label for="email">   Email:  </label>
+    <div class="top" v-if="!store.logged">
+    <label for="email">   Email:  </label>
     <input id="email" type="text" v-model="email">
     <label for="password">   Password:  </label>
     <input id="password" type="text" v-model="password">
-      <button class="button" @click="signIn">Sign In</button>
-      <button class="button" @click="signUp">Sign Up</button>
-  
+    <button class="button" @click="signIn">Sign In</button>
+    <button class="button" @click="signUp">Sign Up</button>
     </div>
+
     <div v-if="store.logged">
       <button @click="signOut">Sign Out</button>
     </div>
-
-  </template>
+</template>
   
-  <script setup>
+<script setup>
   import { supabase } from '../../supabase';
   import { useStore } from '@/stores/counter';
   import { ref } from 'vue';
@@ -35,7 +34,7 @@
       'Authorization': 'Basic ' + btoa(client_id + ':' + client_secret)
     },
     body: 'grant_type=client_credentials'
-  };
+};
 
   return fetch('https://accounts.spotify.com/api/token', authOptions)
     .then(response => response.json())
@@ -85,16 +84,21 @@
     store.token = null
     router.push({ path: '/' })
   }
-
-  </script>
+</script>
 
 <style>
+.top {
+  font-weight: bold;
+}
 .button {
   border-radius: 4px;
   font-size: 0.8rem;
   background-color: white;
   font-weight: 500;
   cursor: pointer;
+  justify-content: space-around;
+  padding: 0.2rem;
+  margin-left:0.5%
 }
 #email {
   color: rgb(64, 137, 141);
@@ -102,7 +106,6 @@
 #password {
   color: rgb(64, 137, 141);
 }
-
 </style>
 
   

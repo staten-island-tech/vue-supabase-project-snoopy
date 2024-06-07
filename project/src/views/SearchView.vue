@@ -1,6 +1,6 @@
 <template>
   <Login v-if="store.logged"></Login>
-  <button @click="playlistRoute">Go back to Playlists</button>
+  <button class="button3" @click="playlistRoute">Go back to Playlists</button>
   <div v-if="store.logged">
     <div>
       <label for="search">Search for Tracks </label>
@@ -60,5 +60,17 @@ function playlistRoute() {
 </script>
 
 <style>
-
+.button3 {
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  background-color: white;
+  font-weight: 500;
+  cursor: pointer;
+  justify-content: space-around;
+  padding: 0.2rem;
+  text-align: center;
+  margin-top: 0.3%;
+  margin-left: 2%;
+}
 </style>

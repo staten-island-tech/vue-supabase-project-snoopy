@@ -104,6 +104,7 @@ async function removeFromPlaylist(track) {
 .button6 {
   text-align: center;
   margin-left: 2%;
+  margin-bottom: 1.5%;
   border-radius: 4px;
   background-color: rgb(219, 236, 255);
 }
@@ -122,6 +123,6 @@ h3 {
 }
 p {
   margin-left: 2%;
-    color: rgb(33, 107, 192);
+  color: rgb(33, 107, 192);
 }
 </style>

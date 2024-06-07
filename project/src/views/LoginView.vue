@@ -1,14 +1,13 @@
 <template>
     <div>
       <h1> Playlist Maker</h1>
-      <h2> Login </h2>
+      <h2> Login: </h2>
       <p> Sign in or sign up below to view your playlist! </p>
       <Login></Login>
     </div>
   </template>
   
   <script setup>
-
   import Login from '@/components/Login.vue';
 </script>
   

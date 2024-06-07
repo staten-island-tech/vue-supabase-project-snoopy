@@ -94,21 +94,22 @@
 .button {
   border-radius: 4px;
   font-size: 0.8rem;
+  font-weight: bold;
   background-color: white;
   font-weight: 500;
   cursor: pointer;
   justify-content: space-around;
   padding: 0.2rem;
   text-align: center;
-  margin-left:0.5%
+  margin-left:0.15%
 }
 #email {
   color: rgb(64, 137, 141);
-  text-align: center;
+  margin-right: 1.5%;
 }
 #password {
   color: rgb(64, 137, 141);
-  text-align: center;
+  margin-right: 5%;
 }
 </style>
 

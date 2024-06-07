@@ -1,7 +1,7 @@
 <template>
     <div>
         <Login></Login>      
-    <button @click="searchRoute">Go back to Search</button>
+    <button class= "button2" @click="searchRoute">Go back to Search</button>
       <h2>My Playlist</h2>      
 
       <div v-for="track in playlistData" :key="track.track_id">
@@ -79,7 +79,26 @@ async function removeFromPlaylist(track) {
 
   </script>
 
-  <style>
-
-
+<style>
+.button2 {
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  background-color: white;
+  font-weight: 500;
+  cursor: pointer;
+  justify-content: space-around;
+  padding: 0.2rem;
+  text-align: center;
+  margin-top: 0.3%;
+  margin-left: 2%;
+}
+h2 {
+  align-items: center;
+  text-align: center;
+  margin-bottom: 7%;
+  margin-top: 3.5%;
+  text-decoration: underline;
+  font-size: 3rem;
+}
 </style>

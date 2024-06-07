@@ -9,7 +9,7 @@
     </div>
 
     <div v-if="store.logged">
-      <button @click="signOut">Sign Out</button>
+      <button class="button1" @click="signOut">Sign Out</button>
     </div>
 </template>
   
@@ -102,6 +102,19 @@
   padding: 0.2rem;
   text-align: center;
   margin-left:0.15%
+}
+.button1 {
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  background-color: white;
+  font-weight: 500;
+  cursor: pointer;
+  justify-content: space-around;
+  padding: 0.2rem;
+  text-align: center;
+  margin-top: 2%;
+  margin-left: 2%;
 }
 #email {
   color: rgb(64, 137, 141);

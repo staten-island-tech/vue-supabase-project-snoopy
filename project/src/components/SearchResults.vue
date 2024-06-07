@@ -1,7 +1,7 @@
 <template>
     <div>
       <h4>{{ result.name }} by {{ result.artists[0].name }}</h4>
-      <button @click="addToPlaylist(result)">Add to Playlist</button>
+      <button class="button" @click="addToPlaylist(result)">Add to Playlist</button>
     </div>
   </template>
   
@@ -27,6 +27,21 @@ async function addToPlaylist(result) {
     }
     router.push({path: 'playlist'})
 }
+</script>
 
-  </script>
+
+<style>
+.button {
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  background-color: white;
+  font-weight: 500;
+  cursor: pointer;
+  justify-content: space-around;
+  padding: 0.2rem;
+  text-align: center;
+  margin-left:0.15%
+}
+</style>
   

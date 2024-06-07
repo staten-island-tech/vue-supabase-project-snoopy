@@ -63,7 +63,5 @@ function playlistRoute() {
 </script>
 
 <style>
-.button {
-  
-}
+
 </style>

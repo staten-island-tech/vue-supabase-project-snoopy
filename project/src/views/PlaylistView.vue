@@ -21,6 +21,7 @@
   const store = useStore()
   const session = ref(null)
   const playlistData = ref([])
+  const pkeyTrack = ref("")
 
   onMounted(async () => {
     await getPlaylist(store.current_id)
@@ -35,9 +36,19 @@
     .from('playlists')
     .select('track_id')
     .eq('id', `${id}`)
-    console.log(injectTracks(Array.from(data)))
-
+    injectTracks(Array.from(data))
   }
+
+
+async function getPkey(track) {
+    const { data, error } = await supabase 
+    .from('playlists')
+    .select('pkey')
+    .eq('id', store.current_id)
+    .eq('track_id', track.id)
+    return data[0].pkey
+}
+
 
   async function fetchWebApi(endpoint, method, body = null) {
   const res = await fetch(endpoint, {
@@ -50,31 +61,29 @@
   return await res.json();
 }
 
-    async function getTrack(track) {
-        return await fetchWebApi(`https://api.spotify.com/v1/tracks/${track.track_id}`, "GET")
-    }
+async function getTrack(track) {
+    return await fetchWebApi(`https://api.spotify.com/v1/tracks/${track.track_id}`, "GET")
+}
 
 async function injectTracks(playlist) {
   const tracks = []
   for (const track of playlist) {
     const trackData = await getTrack(track);
     tracks.push(trackData)
-
   }    
   playlistData.value = tracks
-  console.log(playlistData.value)
 }
 
+
 async function removeFromPlaylist(track) {
+    const pkey = await getPkey(track)
+    console.log(pkey)
     const { data, error } = await supabase 
     .from('playlists')
     .delete()
-    .eq('id', store.current_id)
-    .eq('track_id', track.id)
-    if (error) {
-        console.log(error)
-    }
-    getPlaylist(store.current_id)
+    .eq('pkey', pkey)
+
+    await getPlaylist(store.current_id)
 }
 
   </script>

@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h4>{{ result.name }} by {{ result.artists[0].name }}</h4>
+      <p>{{ result.name }} by {{ result.artists[0].name }}</p>
       <button class="button" @click="addToPlaylist(result)">Add to Playlist</button>
     </div>
   </template>
@@ -42,6 +42,10 @@ async function addToPlaylist(result) {
   padding: 0.2rem;
   text-align: center;
   margin-left:0.15%
+}
+p {
+  margin-left: 2%;
+  margin-top: 2.5%;
 }
 </style>
   

@@ -78,6 +78,8 @@ function playlistRoute() {
 }
 .search {
   text-align: center;
+  font-weight: bold;
   margin-left: 2%;
+  margin-bottom: 3%;
 }
 </style>

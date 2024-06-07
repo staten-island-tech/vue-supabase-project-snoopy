@@ -1,7 +1,7 @@
 <template>
     <div>
       <p>{{ result.name }} by {{ result.artists[0].name }}</p>
-      <button class="button" @click="addToPlaylist(result)">Add to Playlist</button>
+      <button class="button5" @click="addToPlaylist(result)">Add to Playlist</button>
     </div>
   </template>
   
@@ -31,21 +31,22 @@ async function addToPlaylist(result) {
 
 
 <style>
-.button {
+.button5 {
   border-radius: 4px;
   font-size: 0.8rem;
   font-weight: bold;
-  background-color: white;
+  background-color: rgb(219, 236, 255);
   font-weight: 500;
   cursor: pointer;
   justify-content: space-around;
   padding: 0.2rem;
   text-align: center;
-  margin-left:0.15%
+  margin-left: 2%;
 }
 p {
   margin-left: 2%;
   margin-top: 2.5%;
+  color: rgb(33, 107, 192);
 }
 </style>
   

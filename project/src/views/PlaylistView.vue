@@ -7,7 +7,7 @@
 
       <div v-for="track in playlistData" :key="track.track_id">
         <p>{{ track.name }} by {{ track.artists[0].name }}</p>
-        <button class="button" @click="removeFromPlaylist(track)">Remove from Playlist</button>
+        <button class="button6" @click="removeFromPlaylist(track)">Remove from Playlist</button>
       </div>
     </div>
   </template>
@@ -101,9 +101,11 @@ async function removeFromPlaylist(track) {
   margin-top: 0.3%;
   margin-left: 2%;
 }
-.button {
+.button6 {
   text-align: center;
   margin-left: 2%;
+  border-radius: 4px;
+  background-color: rgb(219, 236, 255);
 }
 h2 {
   align-items: center;
@@ -120,5 +122,6 @@ h3 {
 }
 p {
   margin-left: 2%;
+    color: rgb(33, 107, 192);
 }
 </style>

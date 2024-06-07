@@ -75,9 +75,12 @@ function playlistRoute() {
 }
 .button {
   margin-left: 2%;
+  border-radius: 4px;
+  text-align: center;
 }
 .search {
   text-align: center;
+  border-radius: 4px;
   font-weight: bold;
   margin-left: 2%;
   margin-bottom: 3%;

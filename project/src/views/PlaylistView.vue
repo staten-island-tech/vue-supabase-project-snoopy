@@ -80,8 +80,6 @@ async function removeFromPlaylist(track) {
   </script>
 
   <style>
-    .button {
 
-    }
 
 </style>

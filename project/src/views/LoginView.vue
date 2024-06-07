@@ -14,10 +14,15 @@
 <style scoped>
 h1{
   align-items: center;
+  text-align: center;
+  margin-bottom: 8%;
+  margin-top: 2%;
   text-decoration: underline;
-  margin-left: 45%
+  font-size: 3rem;
 }
 h2 {
   align-items: center;
+  font-size: 2.2rem;
+  text-align: center;
 }
 </style>

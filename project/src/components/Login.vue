@@ -88,6 +88,7 @@
 
 <style>
 .top {
+  text-align: center;
   font-weight: bold;
 }
 .button {
@@ -98,13 +99,16 @@
   cursor: pointer;
   justify-content: space-around;
   padding: 0.2rem;
+  text-align: center;
   margin-left:0.5%
 }
 #email {
   color: rgb(64, 137, 141);
+  text-align: center;
 }
 #password {
   color: rgb(64, 137, 141);
+  text-align: center;
 }
 </style>
 

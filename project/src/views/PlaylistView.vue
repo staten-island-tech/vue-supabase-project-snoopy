@@ -3,7 +3,7 @@
         <Login></Login>      
     <button class= "button2" @click="searchRoute">Go back to Search</button>
       <h2>My Playlist:</h2> 
-      <p> Search for songs to add to or remove from your playlist! </p>     
+      <h3> Search for songs to add to or remove from your playlist! </h3>     
 
       <div v-for="track in playlistData" :key="track.track_id">
         <p>{{ track.name }} by {{ track.artists[0].name }}</p>
@@ -88,14 +88,15 @@ async function removeFromPlaylist(track) {
   background-color: white;
   font-weight: 500;
   cursor: pointer;
-  justify-content: space-around;
   padding: 0.2rem;
   text-align: center;
+  align-items: center;
   margin-top: 0.3%;
   margin-left: 2%;
 }
 .button {
   text-align: center;
+  margin-left: 2%;
 }
 h2 {
   align-items: center;
@@ -104,9 +105,13 @@ h2 {
   text-decoration: underline;
   font-size: 3rem;
 }
-p {
+h3 {
   align-items: center;
   text-align: center;
   margin-top: -1%;  
+  margin-bottom: 2%;
+}
+p {
+  margin-left: 2%;
 }
 </style>

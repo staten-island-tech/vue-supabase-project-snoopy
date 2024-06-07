@@ -3,7 +3,7 @@
   <button class="button3" @click="playlistRoute">Go back to Playlists</button>
   <div v-if="store.logged">
     <div>
-      <label for="search">Search for Tracks </label>
+      <label class="search" for="search"> Search for Tracks </label>
       <input type="text" id="search" v-model="search">
       <button class="button" @click="search_tracks">Submit</button>
     </div>
@@ -71,5 +71,12 @@ function playlistRoute() {
   text-align: center;
   margin-top: 0.3%;
   margin-left: 2%;
+  margin-bottom: 5%;
+}
+.button {
+  margin-left: 3%;
+}
+.search {
+  text-align: center;
 }
 </style>

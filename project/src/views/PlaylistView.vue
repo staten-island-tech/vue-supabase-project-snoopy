@@ -1,7 +1,7 @@
 <template>
     <div>
         <Login></Login>      
-    <button class= "button2" @click="searchRoute">Go back to Search</button>
+    <button class= "button2" @click="searchRoute">Go Back to Search</button>
       <h2>My Playlist:</h2> 
       <h3> Search for songs to add to or remove from your playlist! </h3>     
 

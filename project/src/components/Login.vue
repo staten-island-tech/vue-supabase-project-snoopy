@@ -16,14 +16,12 @@
 <script setup>
   import { supabase } from '../../supabase';
   import { useStore } from '@/stores/counter';
-  import { ref, onMounted } from 'vue';
+  import { ref } from 'vue';
   import router from '@/router';
   const store = useStore()
 
   const email = ref("")
   const password = ref("")
-
-  const currentUserData = ref(null)
   
   function getToken() {
   const client_id = '620e738985b043f8b0b38813d21c2a2e';
@@ -53,7 +51,7 @@
     password: password.value,    
   })
   if (error) {
-    console.log(error)
+    alert(error.message)
   }
   else {
     signIn()
@@ -66,7 +64,7 @@
   password: password.value,
   })  
   if (error) {
-    console.log(error)
+    alert(error.message)
   }
   else {
     store.current_user = data
@@ -90,6 +88,7 @@
 
 <style>
 .top {
+  text-align: center;
   font-weight: bold;
 }
 .button {
@@ -100,13 +99,16 @@
   cursor: pointer;
   justify-content: space-around;
   padding: 0.2rem;
+  text-align: center;
   margin-left:0.5%
 }
 #email {
   color: rgb(64, 137, 141);
+  text-align: center;
 }
 #password {
   color: rgb(64, 137, 141);
+  text-align: center;
 }
 </style>
 

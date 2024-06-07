@@ -21,10 +21,6 @@
   const store = useStore()
   const playlistData = ref([])
 
-  if (error) {
-    alert(error.message)
-  }
-
   onMounted(async () => {
     await getPlaylist(store.current_id)
 })

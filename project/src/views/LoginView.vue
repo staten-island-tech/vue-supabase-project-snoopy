@@ -7,9 +7,6 @@
   </template>
   
   <script setup>
-  if (error) {
-    alert(error.message)
-  }
 
   import Login from '@/components/Login.vue';
   </script>

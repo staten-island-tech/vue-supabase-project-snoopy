@@ -26,10 +26,6 @@ const store = useStore()
 const search = ref("")
 const searchArr = ref([])
 
-if (error) {
-    alert(error.message)
-  }
-
 async function fetchWebApi(endpoint, method, body = null) {
   const res = await fetch(endpoint, {
     headers: {

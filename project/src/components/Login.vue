@@ -17,7 +17,7 @@
   <script setup>
   import { supabase } from '../../supabase';
   import { useStore } from '@/stores/counter';
-  import { ref, onMounted } from 'vue';
+  import { ref } from 'vue';
   import router from '@/router';
   const store = useStore()
 
@@ -52,7 +52,7 @@
     password: password.value,    
   })
   if (error) {
-    console.log(error)
+    alert(error.message)
   }
   else {
     signIn()
@@ -65,7 +65,7 @@
   password: password.value,
   })  
   if (error) {
-    console.log(error)
+    alert(error.message)
   }
   else {
     store.current_user = data

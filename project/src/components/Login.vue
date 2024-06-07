@@ -1,8 +1,8 @@
 <template>
     <div v-if="!store.logged">
-      <label for="email">Email  </label>
+      <label for="email">   Email:  </label>
     <input id="email" type="text" v-model="email">
-    <label for="password">   Password  </label>
+    <label for="password">   Password:  </label>
     <input id="password" type="text" v-model="password">
       <button class="button" @click="signIn">Sign In</button>
       <button class="button" @click="signUp">Sign Up</button>
@@ -92,6 +92,17 @@
 
 <style>
 .button {
+  border-radius: 4px;
+  font-size: 0.8rem;
+  background-color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+#email {
+  color: rgb(64, 137, 141);
+}
+#password {
+  color: rgb(64, 137, 141);
 }
 
 </style>

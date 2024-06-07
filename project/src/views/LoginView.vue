@@ -9,14 +9,15 @@
   <script setup>
 
   import Login from '@/components/Login.vue';
-  </script>
+</script>
   
-  <style scoped>
-  h1{
-    align-items: center;
-    margin-left: 45%
-  }
-  h2 {
-    align-items: center;
-  }
-  </style>
+<style scoped>
+h1{
+  align-items: center;
+  text-decoration: underline;
+  margin-left: 45%
+}
+h2 {
+  align-items: center;
+}
+</style>

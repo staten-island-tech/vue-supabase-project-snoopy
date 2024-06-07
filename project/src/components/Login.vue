@@ -23,8 +23,6 @@
 
   const email = ref("")
   const password = ref("")
-
-  const currentUserData = ref(null)
   
   function getToken() {
   const client_id = '620e738985b043f8b0b38813d21c2a2e';

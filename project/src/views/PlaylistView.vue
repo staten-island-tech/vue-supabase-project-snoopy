@@ -19,9 +19,11 @@
   import Login from '@/components/Login.vue';
   
   const store = useStore()
-  const session = ref(null)
   const playlistData = ref([])
-  const pkeyTrack = ref("")
+
+  if (error) {
+    alert(error.message)
+  }
 
   onMounted(async () => {
     await getPlaylist(store.current_id)
